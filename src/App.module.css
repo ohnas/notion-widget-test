@@ -1,11 +1,12 @@
 .container {
-    width: 80vw; /* 화면의 가로 크기의 50% */
-    height: 80vh; /* 화면의 세로 크기의 50% */
+    width: 50vw;
+    height: 50vh;
     margin: 10px 10px 10px 10px;
     display: flex;
     gap: 20px;
     border-radius: 10px;
-    overflow: hidden; /* 배경색이 테두리를 넘치지 않도록 설정 */
+    overflow: hidden;
+    background-color: black;
 }
 
 .part {
@@ -13,7 +14,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background-color: #FFC107; /* 예시 이미지와 유사한 노란색 배경 */
+    background-color: #FFC107;
     color: white;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     text-align: center;
@@ -23,4 +24,3 @@
     font-size: 10em;
     line-height: 1;
 }
-  
