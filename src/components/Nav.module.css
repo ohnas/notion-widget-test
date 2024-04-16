@@ -1,0 +1,12 @@
+.container {
+    height: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: solid 1px;
+    border-color: rgba(210, 214, 220);
+}
+
+.title {
+    font-size: 20px;
+}
