@@ -1,8 +1,11 @@
-import FlipClock from "./components/FlipClock";
+import Nav from "./components/Nav";
+
+// import FlipClock from "./components/FlipClock";
 
 function App() {
   return (
-    <FlipClock />
+    <Nav />
+    // <FlipClock />
   );
 }
 
