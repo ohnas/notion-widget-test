@@ -1,26 +1,28 @@
 .container {
-    width: 50vw;
-    height: 50vh;
-    margin: 10px 10px 10px 10px;
+    width: 100vw;
+    height: 100vh;
+    /* width: auto; */
+    /* height: 100%; */
+    /* background-color: black; */
+    /* margin: 15px 15px 15px 15px; */
     display: flex;
+    justify-content: center;
+    align-items: center;
     gap: 20px;
-    border-radius: 10px;
-    overflow: hidden;
-    background-color: black;
 }
 
 .part {
-    flex: 1;
+    width: 40vw;
+    height: 80vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     background-color: #FFC107;
     color: white;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     text-align: center;
+    border-radius: 20px;
 }
 
 .hours, .minutes {
-    font-size: 10em;
-    line-height: 1;
+    font-size: 20vw;
 }
