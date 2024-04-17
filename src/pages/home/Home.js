@@ -7,7 +7,7 @@ function Home() {
         <div className={styles.container}>
             <div className={styles.grid_continer}>
                 <div className={styles.item}>
-                    <Link to={"/notion-widget-test/widget/flipclock"}>
+                    <Link to={"/widget/flipclock"}>
                         <div className={styles.item_img}>
                             <img src={flipclock} alt='flipclock'></img>
                         </div>
