@@ -8,8 +8,8 @@ function App() {
     <BrowserRouter>
       <Nav />
       <Routes>
-        <Route path="/" element={<Home />} ></Route>
-        <Route path="/flipclock" element={<FlipClock />} ></Route>
+        <Route path="/notion-widget-test" element={<Home />} ></Route>
+        <Route path="/notion-widget-test/flipclock" element={<FlipClock />} ></Route>
       </Routes>
     </BrowserRouter>
   );
