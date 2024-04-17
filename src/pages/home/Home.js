@@ -1,14 +1,15 @@
 import { Link } from 'react-router-dom';
 import styles from './Home.module.css'
+import test from '../../assets/images/test.png'
 
 function Home() {
     return(
         <div className={styles.container}>
             <div className={styles.grid_continer}>
                 <div className={styles.item}>
-                    <Link to={"/flipclock"}>
+                    <Link to={"/notion-widget-test/flipclock"}>
                         <div className={styles.item_img}>
-                            <span>위젯 이미지</span>
+                            <img src={test} alt='test'></img>
                         </div>
                         <div className={styles.item_title}>
                             <span className={styles.title}>Flip Clock</span>
