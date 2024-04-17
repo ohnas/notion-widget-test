@@ -21,9 +21,9 @@ function App() {
     <BrowserRouter>
       <Nav />
       <Routes>
-        <Route path="/" element={<Home />} ></Route>
-        <Route path="/widget/:name" element={<Widget />} ></Route>
-        <Route path="/embeds/flipclock" element={<FlipClock />} ></Route>
+        <Route path="/notion-widget-test" element={<Home />} ></Route>
+        <Route path="/notion-widget-test/widget/:name" element={<Widget />} ></Route>
+        <Route path="/notion-widget-test/embeds/flipclock" element={<FlipClock />} ></Route>
       </Routes>
     </BrowserRouter>
   );
