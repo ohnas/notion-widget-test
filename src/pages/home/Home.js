@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import styles from './Home.module.css'
-import test from '../../assets/images/test.png'
+import flipclock from '../../assets/images/flipclock.png'
 
 function Home() {
     return(
@@ -9,7 +9,7 @@ function Home() {
                 <div className={styles.item}>
                     <Link to={"/notion-widget-test/widget/flipclock"}>
                         <div className={styles.item_img}>
-                            <img src={test} alt='test'></img>
+                            <img src={flipclock} alt='flipclock'></img>
                         </div>
                         <div className={styles.item_title}>
                             <span className={styles.title}>Flip Clock</span>
