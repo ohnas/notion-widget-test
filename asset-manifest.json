@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/notion-widget-test/static/css/main.8732d034.css",
-    "main.js": "/notion-widget-test/static/js/main.72bfb9df.js",
+    "main.js": "/notion-widget-test/static/js/main.a489c725.js",
     "static/media/flipclock.png": "/notion-widget-test/static/media/flipclock.402420fd4d42f1df7498.png",
     "index.html": "/notion-widget-test/index.html",
     "main.8732d034.css.map": "/notion-widget-test/static/css/main.8732d034.css.map",
-    "main.72bfb9df.js.map": "/notion-widget-test/static/js/main.72bfb9df.js.map"
+    "main.a489c725.js.map": "/notion-widget-test/static/js/main.a489c725.js.map"
   },
   "entrypoints": [
     "static/css/main.8732d034.css",
-    "static/js/main.72bfb9df.js"
+    "static/js/main.a489c725.js"
   ]
 }
