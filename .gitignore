@@ -24,3 +24,6 @@ yarn-error.log*
 
 # key files
 /cert
+
+# firebase
+/.firebase
