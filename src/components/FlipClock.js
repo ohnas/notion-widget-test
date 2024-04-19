@@ -32,12 +32,14 @@ function FlipClock() {
     }, []);
 
     return(
-        <div className={styles.container}>
-            <div className={styles.part}>
-                <span className={styles.hours}>{String(time.getHours()).padStart(2, '0')}</span>
+      <div className={styles.container}>
+            <div className={styles.item}>
+              {String(time.getHours()).padStart(2, '0')}
+              <div className={styles.line}></div>
             </div>
-            <div className={styles.part}>
-                <span className={styles.minutes}>{String(time.getMinutes()).padStart(2, '0')}</span>
+            <div className={styles.item}>
+              {String(time.getMinutes()).padStart(2, '0')}
+              <div className={styles.line}></div>
             </div>
         </div>
     );
