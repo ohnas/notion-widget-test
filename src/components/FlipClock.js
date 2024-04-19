@@ -30,17 +30,14 @@ function FlipClock() {
       // 컴포넌트가 언마운트될 때 타임아웃을 정리합니다.
       return () => clearTimeout(timeoutId);
     }, []);
-  
-    const hours = time.getHours();
-    const minutes = time.getMinutes();
 
     return(
         <div className={styles.container}>
             <div className={styles.part}>
-                <span className={styles.hours}>{String(hours).padStart(2, '0')}</span>
+                <span className={styles.hours}>{String(time.getHours()).padStart(2, '0')}</span>
             </div>
             <div className={styles.part}>
-                <span className={styles.minutes}>{String(minutes).padStart(2, '0')}</span>
+                <span className={styles.minutes}>{String(time.getMinutes()).padStart(2, '0')}</span>
             </div>
         </div>
     );
