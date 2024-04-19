@@ -21,7 +21,7 @@ function Widget() {
                 </div>
                 <div className={styles.item_clipboard}>
                     <div className={styles.clipboard}>
-                        <input type="text" value={`https://notion-widget-test.web.app/embeds/${widgetName}`} readonly />
+                        <input type="text" value={`https://notion-widget-test.web.app/embeds/${widgetName}`} readOnly />
                         {/* <button>복사</button> */}
                     </div>
                     <p>paste the url into your Notion page's /embed block.</p>

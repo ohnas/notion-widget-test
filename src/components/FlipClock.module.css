@@ -28,3 +28,10 @@
     width: 100%;
     height: 5px;
 }
+
+.day {
+    position: absolute;
+    top: 85%;
+    right: 10%;
+    font-size: 3vw;
+}

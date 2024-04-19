@@ -3,6 +3,9 @@ import styles from './FlipClock.module.css'
 
 function FlipClock() {
     const [time, setTime] = useState(new Date());
+    const [day, setDay] = useState("");
+
+    const days = ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"];
 
     useEffect(() => {
       // 현재 시간을 가져옵니다.
@@ -31,6 +34,10 @@ function FlipClock() {
       return () => clearTimeout(timeoutId);
     }, []);
 
+    useEffect(() => {
+      setDay(new Date().getDay())
+    }, []);
+
     return(
       <div className={styles.container}>
             <div className={styles.item}>
@@ -40,6 +47,7 @@ function FlipClock() {
             <div className={styles.item}>
               {String(time.getMinutes()).padStart(2, '0')}
               <div className={styles.line}></div>
+              {day !== "" ? <span className={styles.day}>{days[day].toUpperCase()}</span>: null}
             </div>
         </div>
     );
