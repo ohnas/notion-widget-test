@@ -7,6 +7,11 @@
     border-color: rgba(210, 214, 220);
 }
 
+.container a {
+    text-decoration: none;
+    color: #000000;
+}
+
 .title {
     font-size: 20px;
 }
