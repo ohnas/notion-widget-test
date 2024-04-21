@@ -9,6 +9,16 @@ const imges = {
 function Widget() {
 	const params = useParams();
 	const widgetName = params.name;
+    const handleData = (event) => {
+        const url = event.target.previousElementSibling.firstElementChild.innerHTML;
+        navigator.clipboard.writeText(url)
+        .then(() => {
+            console.log("Text copied to clipboard...");
+        })
+        .catch((error) => {
+            console.log('Something went wrong', error);
+        })
+    }
 
     return(
         <div className={styles.container}>
@@ -21,8 +31,10 @@ function Widget() {
                 </div>
                 <div className={styles.item_clipboard}>
                     <div className={styles.clipboard}>
-                        <input type="text" value={`https://notion-widget-test.web.app/embeds/${widgetName}`} readOnly />
-                        {/* <button>복사</button> */}
+                        <div>
+                            <span>{`https://notion-widget-test.web.app/embeds/${widgetName}`}</span>
+                        </div>
+                        <button onClick={handleData}>COPY</button>
                     </div>
                     <p>paste the url into your Notion page's /embed block.</p>
                 </div>

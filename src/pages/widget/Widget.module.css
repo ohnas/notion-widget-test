@@ -41,16 +41,21 @@
     gap: 5px;
 }
 
-.clipboard input {
+.clipboard div {
     flex-grow: 9;
     color: gray;
     padding-left: 10px;
+    background-color: #FFFFFF;
+    border: 2px solid;
     border-radius: 5px;
+    display: flex;
+    align-items: center;
     border-color: rgba(210, 214, 220);
 }
 
-/* .clipboard button {
+.clipboard button {
     flex-grow: 1;
     border-radius: 5px;
     border-color: rgba(210, 214, 220);
-} */
+    cursor: pointer;
+}
