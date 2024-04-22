@@ -16,9 +16,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #E6E6E6;
-    color: #000000;
+    background-color: var(--main-bg-color);
     border-radius: 20px;
+}
+
+.item span {
+    color: var(--main-text-color);
 }
 
 .line {
