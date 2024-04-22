@@ -3,7 +3,7 @@ import styles from './FlipClock.module.css'
 
 function FlipClock() {
     const [time, setTime] = useState(new Date());
-    const [day, setDay] = useState("");
+    const [day, setDay] = useState(0);
 
     const days = ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"];
 
@@ -47,7 +47,7 @@ function FlipClock() {
             <div className={styles.item}>
               {String(time.getMinutes()).padStart(2, '0')}
               <div className={styles.line}></div>
-              {day !== "" ? <span className={styles.day}>{days[day].toUpperCase()}</span>: null}
+              <span className={styles.day}>{days[day].toUpperCase()}</span>
             </div>
         </div>
     );
