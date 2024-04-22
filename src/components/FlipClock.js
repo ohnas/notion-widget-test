@@ -4,6 +4,7 @@ import styles from './FlipClock.module.css'
 function FlipClock() {
     const [time, setTime] = useState(new Date());
     const [day, setDay] = useState(0);
+    const [backgroundColor, setBackgroundColor] = useState("#FFFFFF");
 
     const days = ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"];
 
@@ -38,18 +39,27 @@ function FlipClock() {
       setDay(new Date().getDay())
     }, []);
 
+    function handleBackgroundColor(event) {
+      setBackgroundColor(event.target.value);
+    }
+    console.log(backgroundColor);
+
     return(
       <div className={styles.container}>
-            <div className={styles.item}>
-              {String(time.getHours()).padStart(2, '0')}
-              <div className={styles.line}></div>
-            </div>
-            <div className={styles.item}>
-              {String(time.getMinutes()).padStart(2, '0')}
-              <div className={styles.line}></div>
-              <span className={styles.day}>{days[day].toUpperCase()}</span>
-            </div>
+        <div className={styles.item}>
+          {String(time.getHours()).padStart(2, '0')}
+          <div className={styles.line}></div>
         </div>
+        <div className={styles.item}>
+          {String(time.getMinutes()).padStart(2, '0')}
+          <div className={styles.line}></div>
+          <span className={styles.day}>{days[day].toUpperCase()}</span>
+        </div>
+        <div>
+          <label htmlFor="background">Background</label>
+          <input id="background" type="color" value={backgroundColor} onChange={handleBackgroundColor} />
+        </div>
+      </div>
     );
 }
 

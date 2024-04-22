@@ -4,12 +4,12 @@
     justify-content: center;
     align-items: center;
     border-bottom: solid 1px;
-    border-color: rgba(210, 214, 220);
+    border-color: var(--main-border-color);
 }
 
 .container a {
     text-decoration: none;
-    color: #000000;
+    color: var(--main-text-color);
 }
 
 .title {

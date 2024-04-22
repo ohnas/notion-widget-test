@@ -1,7 +1,7 @@
 .container {
     display: flex;
     justify-content: center;
-    background-color: #F7F6F3;
+    background-color: var(--main-bg-color);
 }
 
 .grid_continer {
@@ -15,7 +15,7 @@
 
 .item {
     border: solid 2px;
-    border-color: rgba(210, 214, 220);
+    border-color: var(--main-border-color);
 }
 
 .item > a {
@@ -27,7 +27,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: white;
+    background-color: #ffffff;
 }
 
 .item_img > img {
@@ -38,18 +38,18 @@
     height: 15vh;
     margin-top: 15px;
     margin-left: 5px;
-    background-color: #F7F6F3;
+    background-color: var(--main-bg-color);
     display: flex;
     flex-direction: column;
 }
 
 .title {
     font-size: 30px;
-    color: black;
+    color: var(--main-text-color);
 }
 
 .content {
     margin-top: 10px;
     font-size: 15px;
-    color: gray;
+    color: var(--sub-text-color);
 }
