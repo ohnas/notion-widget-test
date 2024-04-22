@@ -1,13 +1,15 @@
 import { useEffect, useState } from "react";
+import { useSearchParams } from "react-router-dom";
 import styles from './FlipClock.module.css'
 
-function FlipClock() {
+function FlipClock({ miniComponent = false }) {
   const [time, setTime] = useState(new Date());
   const [day, setDay] = useState(0);
   const [backgroundColorChange, setBackgroundColorChange] = useState(false);
   const [textColorChange, setTextColorChange] = useState(false);
   const [backgroundColor, setBackgroundColor] = useState("#FFFFFF");
   const [textColor, setTextColor] = useState("#FFFFFF");
+  const [searchParams] = useSearchParams();
 
   const days = ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"];
 
@@ -55,31 +57,30 @@ function FlipClock() {
     setTextColorChange(false);
   }
 
+
   return(
-    <>
-      <div className={styles.container}>
-        <div className={styles.item} style={backgroundColorChange === false ? null : {'backgroundColor':backgroundColor}}>
-          <span style={textColorChange === false ? null : {'color':textColor}}>
-            {String(time.getHours()).padStart(2, '0')}
-          </span>
-          <div className={styles.line}></div>
-        </div>
-        <div className={styles.item} style={backgroundColorChange === false ? null : {'backgroundColor':backgroundColor}}>
-          <span style={textColorChange === false ? null : {'color':textColor}}>
-            {String(time.getMinutes()).padStart(2, '0')}
-          </span>
-          <div className={styles.line}></div>
-          <span className={styles.day}>{days[day].toUpperCase()}</span>
-        </div>
+    <div className={miniComponent ? styles.mini_container : styles.container}>
+      <div className={styles.item} style={backgroundColorChange === false ? null : {'backgroundColor':backgroundColor}}>
+        <span className={miniComponent ? styles.mini_text : styles.text} style={textColorChange === false ? null : {'color':textColor}}>
+          {String(time.getHours()).padStart(2, '0')}
+        </span>
+        <div className={miniComponent ? styles.mini_line : styles.line}></div>
       </div>
-      <div>
-        <label htmlFor="background">Background</label>
-        <input id="background" type="color" value={backgroundColor} onChange={handleBackgroundColor} />
-        <label htmlFor="text">Text</label>
-        <input id="text" type="color" value={textColor} onChange={handleTextColor} />
+      <div className={styles.item} style={backgroundColorChange === false ? null : {'backgroundColor':backgroundColor}}>
+        <span className={miniComponent ? styles.mini_text : styles.text} style={textColorChange === false ? null : {'color':textColor}}>
+          {String(time.getMinutes()).padStart(2, '0')}
+        </span>
+        <div className={miniComponent ? styles.mini_line : styles.line}></div>
+        <span className={miniComponent ? styles.mini_day : styles.day}>{days[day].toUpperCase()}</span>
       </div>
-      <button onClick={handleResetBtn}>RESET</button>
-    </>
+            {/* <div>
+      <label htmlFor="background">Background</label>
+      <input id="background" type="color" value={backgroundColor} onChange={handleBackgroundColor} />
+      <label htmlFor="text">Text</label>
+      <input id="text" type="color" value={textColor} onChange={handleTextColor} />
+    </div>
+    <button onClick={handleResetBtn}>RESET</button> */}
+    </div>
   );
 }
 
