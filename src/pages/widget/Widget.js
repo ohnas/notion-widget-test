@@ -32,7 +32,7 @@ function Widget() {
         setEncodedTextColor("");
     }
     function handleData(event) {
-        const url = event.target.previousElementSibling.firstElementChild.innerHTML;
+        const url = event.target.previousElementSibling.firstElementChild.textContent;
         navigator.clipboard.writeText(url)
         .then(() => {
             console.log("Text copied to clipboard...");

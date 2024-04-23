@@ -25,7 +25,7 @@ function App() {
         <Route path="/" element={<Home />} ></Route>
         <Route path="/widget/:name" element={<Widget />} ></Route>
         <Route path="/embeds/flipclock" element={<EmbedFlipClock />} ></Route>
-        <Route path="/embeds/QuickButton" element={<EmbedQuickButton />} ></Route>
+        <Route path="/embeds/quickbutton" element={<EmbedQuickButton />} ></Route>
       </Routes>
     </>
   );

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
-import styles from './EmbedFlipClock.module.css'
+import styles from './EmbedFlipClock.module.css';
 
 
 function EmbedFlipClock() {

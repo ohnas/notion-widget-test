@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import styles from './Home.module.css'
 import flipclock from '../../assets/images/flipclock.png'
+import quickbutton from '../../assets/images/quickbutton.png'
 
 function Home() {
     return(
@@ -18,9 +19,9 @@ function Home() {
                     </Link>
                 </div>
                 <div className={styles.item}>
-                    <Link to={"/"}>
+                    <Link to={"/widget/quickbutton"}>
                         <div className={styles.item_img}>
-                            <span>위젯 이미지</span>
+                            <img src={quickbutton} alt='quickbutton'></img>
                         </div>
                         <div className={styles.item_title}>
                             <span className={styles.title}>Quick Button</span>

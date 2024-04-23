@@ -1,6 +1,16 @@
+import styles from './EmbedQuickButton.module.css';
+
 function EmbedQuickButton() {
+    function handleClick() {
+        window.open('https://www.google.com', '_blank');
+    }    
+    
     return(
-        <div>hello</div>
+        <div className={styles.container}>
+            <div className={styles.item}>
+                <button className={styles.btn} onClick={handleClick}>Quick Button</button>
+            </div>
+        </div>
     );
 }
 
