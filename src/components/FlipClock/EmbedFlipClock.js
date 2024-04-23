@@ -10,6 +10,9 @@ function EmbedFlipClock() {
   
   const days = ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"];
 
+  const backgroundColor = searchParams.get('background');
+  const textColor = searchParams.get('text');
+
   useEffect(() => {
     const now = new Date();
     const msUntilNextMinute = (60 - now.getSeconds()) * 1000 - now.getMilliseconds();
@@ -41,18 +44,18 @@ function EmbedFlipClock() {
   
   return(
     <div className={styles.container}>
-      <div className={styles.item}>
-        <span className={styles.text}>
+      <div className={styles.item} style={backgroundColor === "" || backgroundColor === null ? null : {'backgroundColor':backgroundColor}}>
+        <span className={styles.text} style={textColor === "" || textColor === null ? null : {'color':textColor}}>
           {String(time.getHours()).padStart(2, '0')}
         </span>
         <div className={styles.line}></div>
       </div>
-      <div className={styles.item}>
-        <span className={styles.text}>
+      <div className={styles.item} style={backgroundColor === "" || backgroundColor === null ? null : {'backgroundColor':backgroundColor}}>
+        <span className={styles.text} style={textColor === "" || textColor === null ? null : {'color':textColor}}>
           {String(time.getMinutes()).padStart(2, '0')}
         </span>
         <div className={styles.line}></div>
-        <span className={styles.day}>{days[day].toUpperCase()}</span>
+        <span className={styles.day} style={textColor === "" || textColor === null ? null : {'color':textColor}}>{days[day].toUpperCase()}</span>
       </div>
     </div>
   );

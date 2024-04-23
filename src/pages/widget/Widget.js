@@ -10,20 +10,26 @@ function Widget() {
     const [textColorChange, setTextColorChange] = useState(false);
     const [backgroundColor, setBackgroundColor] = useState("#F1EFEE");
     const [textColor, setTextColor] = useState("#2d3436");
+    const [encodedBackgroundColor, setEncodedBackgroundColor] = useState("");
+    const [encodedTextColor, setEncodedTextColor] = useState("");
     
     function handleBackgroundColor(event) {
         setBackgroundColor(event.target.value);
+        setEncodedBackgroundColor(encodeURIComponent(event.target.value));
         setBackgroundColorChange(true);
     }
     function handleTextColor(event) {
         setTextColor(event.target.value);
+        setEncodedTextColor(encodeURIComponent(event.target.value));
         setTextColorChange(true);
     }
     function handleResetBtn() {
         setBackgroundColorChange(false);
         setTextColorChange(false);
         setBackgroundColor("#F1EFEE");
-        setTextColor("#2d3436")
+        setTextColor("#2d3436");
+        setEncodedBackgroundColor("");
+        setEncodedTextColor("");
     }
     function handleData(event) {
         const url = event.target.previousElementSibling.firstElementChild.innerHTML;
@@ -35,6 +41,8 @@ function Widget() {
             console.log('Something went wrong', error);
         })
     }
+    console.log(encodedBackgroundColor);
+    console.log(encodedTextColor);
 
     return(
         <div className={styles.container}>
@@ -60,7 +68,7 @@ function Widget() {
             </div>
             <div className={styles.clipboard}>
                 <div>
-                    <span>{`https://notion-widget-test.web.app/embeds/${widgetName}?background=${backgroundColor}&text=${textColor}`}</span>
+                    <span>{`https://notion-widget-test.web.app/embeds/${widgetName}?background=${encodedBackgroundColor}&text=${encodedTextColor}`}</span>
                 </div>
                 <button onClick={handleData}>COPY</button>
                 <span>paste the url into your Notion page's /embed block.</span>
