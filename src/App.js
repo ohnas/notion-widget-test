@@ -4,6 +4,7 @@ import Nav from "./components/Nav";
 import Home from "./pages/home/Home";
 import Widget from "./pages/widget/Widget";
 import EmbedFlipClock from "./components/FlipClock/EmbedFlipClock";
+import EmbedQuickButton from "./components/QuickButton/EmbedQuickButton";
 
 function App() {
   const location = useLocation();
@@ -24,6 +25,7 @@ function App() {
         <Route path="/" element={<Home />} ></Route>
         <Route path="/widget/:name" element={<Widget />} ></Route>
         <Route path="/embeds/flipclock" element={<EmbedFlipClock />} ></Route>
+        <Route path="/embeds/QuickButton" element={<EmbedQuickButton />} ></Route>
       </Routes>
     </>
   );
