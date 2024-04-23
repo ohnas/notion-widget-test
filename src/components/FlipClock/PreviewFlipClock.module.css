@@ -1,14 +1,5 @@
 .container {
     width: 100%;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-}
-
-.mini_container {
-    width: 100%;
     height: 100%;
     display: flex;
     justify-content: center;
@@ -29,12 +20,6 @@
 
 .text {
     color: var(--main-text-color);
-    font-size: 25vw;
-    font-weight: bold;
-}
-
-.mini_text {
-    color: var(--main-text-color);
     font-size: 15vw;
     font-weight: bold;
 }
@@ -44,26 +29,10 @@
     position: absolute;
     top: 50%;
     width: 100%;
-    height: 5px;
-}
-
-.mini_line {
-    background-color: #FFFFFF;
-    position: absolute;
-    top: 50%;
-    width: 100%;
     height: 3px;
 }
 
 .day {
-    position: absolute;
-    top: 85%;
-    right: 10%;
-    color: var(--main-text-color);
-    font-size: 3vw;
-}
-
-.mini_day {
     position: absolute;
     top: 85%;
     right: 10%;

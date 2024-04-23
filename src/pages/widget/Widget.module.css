@@ -1,9 +1,38 @@
 .container {
     background-color: var(--main-bg-color);
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.title {
+    width: 50vw;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.title > span {
+    font-size: 5vw;
+    color: var(--main-text-color);
 }
 
 .item {
     width: 50vw;
     height: 50vh;
+    background-color: #ffffff;
+}
+
+.color_picker {
+    width: 50vw;
+    height: 10vh;
     background-color: tomato;
+}
+
+.clipboard {
+    width: 50vw;
+    height: 10vh;
+    background-color: green;
 }

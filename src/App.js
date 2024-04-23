@@ -3,7 +3,7 @@ import { Route, Routes, useLocation } from "react-router-dom";
 import Nav from "./components/Nav";
 import Home from "./pages/home/Home";
 import Widget from "./pages/widget/Widget";
-import FlipClock from './components/FlipClock'
+import EmbedFlipClock from "./components/FlipClock/EmbedFlipClock";
 
 function App() {
   const location = useLocation();
@@ -23,7 +23,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} ></Route>
         <Route path="/widget/:name" element={<Widget />} ></Route>
-        <Route path="/embeds/flipclock" element={<FlipClock />} ></Route>
+        <Route path="/embeds/flipclock" element={<EmbedFlipClock />} ></Route>
       </Routes>
     </>
   );
