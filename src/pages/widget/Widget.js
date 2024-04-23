@@ -41,8 +41,6 @@ function Widget() {
             console.log('Something went wrong', error);
         })
     }
-    console.log(encodedBackgroundColor);
-    console.log(encodedTextColor);
 
     return(
         <div className={styles.container}>
@@ -60,17 +58,21 @@ function Widget() {
                 }
             </div>
             <div className={styles.color_picker}>
-                <label htmlFor="background">Background</label>
-                <input id="background" type="color" value={backgroundColor} onChange={handleBackgroundColor} />
-                <label htmlFor="text">Text</label>
-                <input id="text" type="color" value={textColor} onChange={handleTextColor} />
+                <div className={styles.color}>
+                    <label htmlFor="background">Background</label>
+                    <input id="background" type="color" value={backgroundColor} onChange={handleBackgroundColor} />
+                    <label htmlFor="text">Text</label>
+                    <input id="text" type="color" value={textColor} onChange={handleTextColor} />
+                </div>
                 <button onClick={handleResetBtn}>RESET</button>
             </div>
             <div className={styles.clipboard}>
-                <div>
+                <div className={styles.url}>
                     <span>{`https://notion-widget-test.web.app/embeds/${widgetName}?background=${encodedBackgroundColor}&text=${encodedTextColor}`}</span>
                 </div>
                 <button onClick={handleData}>COPY</button>
+            </div>
+            <div className={styles.info}>
                 <span>paste the url into your Notion page's /embed block.</span>
             </div>
         </div>
