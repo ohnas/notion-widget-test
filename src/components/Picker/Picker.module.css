@@ -1,0 +1,29 @@
+.color_picker {
+    width: 50vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+
+.color {
+    color: var(--main-text-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+.color input {
+    width: 100px;
+    height: 40px;
+    cursor: pointer;
+}
+
+.color_picker > button {
+    border-radius: 10px;
+    width: 100px;
+    height: 40px;
+    border-color: var(--main-border-color);
+    cursor: pointer;
+}

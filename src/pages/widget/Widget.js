@@ -1,11 +1,16 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import styles from './Widget.module.css'
 import PreviewFlipClock from "../../components/FlipClock/PreviewFlipClock";
+import PreviewQuickButton from "../../components/QuickButton/PreviewQuickButton";
+import Picker from "../../components/Picker/Picker";
+import ClipBoard from "../../components/ClipBoard/ClipBoard";
 
 function Widget() {
 	const params = useParams();
 	const widgetName = params.name;
+    const advancedComponents = ["quickbutton"];
+    const [isAdvanced, setIsAdvanced] = useState(false);
     const [backgroundColorChange, setBackgroundColorChange] = useState(false);
     const [textColorChange, setTextColorChange] = useState(false);
     const [backgroundColor, setBackgroundColor] = useState("#F1EFEE");
@@ -41,6 +46,11 @@ function Widget() {
             console.log('Something went wrong', error);
         })
     }
+    useEffect(() => {
+        if(advancedComponents.includes(widgetName)) {
+            setIsAdvanced(true);
+        }
+    }, [widgetName])
 
     return(
         <div className={styles.container}>
@@ -56,22 +66,25 @@ function Widget() {
                     /> 
                     : null
                 }
+                {widgetName === "quickbutton" ? <PreviewQuickButton 
+                        backgroundColor={backgroundColor} 
+                        backgroundColorChange={backgroundColorChange}
+                        textColor={textColor}
+                        textColorChange={textColorChange} 
+                    /> 
+                    : null
+                }
             </div>
-            <div className={styles.color_picker}>
-                <div className={styles.color}>
-                    <label htmlFor="background">Background</label>
-                    <input id="background" type="color" value={backgroundColor} onChange={handleBackgroundColor} />
-                    <label htmlFor="text">Text</label>
-                    <input id="text" type="color" value={textColor} onChange={handleTextColor} />
-                </div>
-                <button onClick={handleResetBtn}>RESET</button>
-            </div>
-            <div className={styles.clipboard}>
-                <div className={styles.url}>
-                    <span>{`https://notion-widget-test.web.app/embeds/${widgetName}?background=${encodedBackgroundColor}&text=${encodedTextColor}`}</span>
-                </div>
-                <button onClick={handleData}>COPY</button>
-            </div>
+            {isAdvanced ?
+                null 
+                : 
+                <Picker backgroundColor={backgroundColor} textColor={textColor} handleBackgroundColor={handleBackgroundColor} handleTextColor={handleTextColor} handleResetBtn={handleResetBtn}  />
+            }
+            {isAdvanced ?
+                null
+                :
+                <ClipBoard widgetName={widgetName} encodedBackgroundColor={encodedBackgroundColor} encodedTextColor={encodedTextColor} handleData={handleData} />
+            }
             <div className={styles.info}>
                 <span>paste the url into your Notion page's /embed block.</span>
             </div>
