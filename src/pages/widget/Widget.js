@@ -4,19 +4,27 @@ import styles from './Widget.module.css'
 import PreviewFlipClock from "../../components/FlipClock/PreviewFlipClock";
 import PreviewQuickButton from "../../components/QuickButton/PreviewQuickButton";
 import Picker from "../../components/Picker/Picker";
+import AdvancedPicker from "../../components/Picker/AdvancedPicker";
 import ClipBoard from "../../components/ClipBoard/ClipBoard";
+import AdvancedClipBoard from "../../components/ClipBoard/AdvancedClipBoard";
 
 function Widget() {
 	const params = useParams();
 	const widgetName = params.name;
     const advancedComponents = ["quickbutton"];
     const [isAdvanced, setIsAdvanced] = useState(false);
-    const [backgroundColorChange, setBackgroundColorChange] = useState(false);
-    const [textColorChange, setTextColorChange] = useState(false);
     const [backgroundColor, setBackgroundColor] = useState("#F1EFEE");
+    const [backgroundColorChange, setBackgroundColorChange] = useState(false);
     const [textColor, setTextColor] = useState("#2d3436");
+    const [textColorChange, setTextColorChange] = useState(false);
+    const [title, setTitle] = useState("");
+    const [titleChange, setTitleChange] = useState(false);
+    const [url, setUrl]  = useState("https://google.com");
+    const [urlChange, setUrlChange] = useState(false);
     const [encodedBackgroundColor, setEncodedBackgroundColor] = useState("");
     const [encodedTextColor, setEncodedTextColor] = useState("");
+    const [encodedTitle, setEncodedTitle] = useState("");
+    const [encodedUrl, setEncodedUrl] = useState("https://google.com");
     
     function handleBackgroundColor(event) {
         setBackgroundColor(event.target.value);
@@ -28,17 +36,32 @@ function Widget() {
         setEncodedTextColor(encodeURIComponent(event.target.value));
         setTextColorChange(true);
     }
+    function handleTitle(event) {
+        setTitle(event.target.value);
+        setEncodedTitle(encodeURIComponent(event.target.value));
+        setTitleChange(true);
+    }
+    function handleUrl(event) {
+        setUrl(event.target.value);
+        setEncodedUrl(encodeURIComponent(event.target.value));
+        setUrlChange(true);
+    }
     function handleResetBtn() {
         setBackgroundColorChange(false);
         setTextColorChange(false);
+        setTitleChange(false);
         setBackgroundColor("#F1EFEE");
         setTextColor("#2d3436");
+        setTitle("");
+        setUrl("https://google.com");
         setEncodedBackgroundColor("");
         setEncodedTextColor("");
+        setEncodedTitle("")
+        setEncodedUrl("https://google.com");
     }
     function handleData(event) {
-        const url = event.target.previousElementSibling.firstElementChild.textContent;
-        navigator.clipboard.writeText(url)
+        const targetUrl = event.target.previousElementSibling.firstElementChild.textContent;
+        navigator.clipboard.writeText(targetUrl)
         .then(() => {
             console.log("Text copied to clipboard...");
         })
@@ -71,19 +94,51 @@ function Widget() {
                         backgroundColorChange={backgroundColorChange}
                         textColor={textColor}
                         textColorChange={textColorChange} 
+                        title={title}
+                        titleChange={titleChange}
+                        url={url}
+                        urlChange={urlChange}
                     /> 
                     : null
                 }
             </div>
             {isAdvanced ?
-                null 
+                <AdvancedPicker 
+                    backgroundColor={backgroundColor} 
+                    textColor={textColor} 
+                    title={title}
+                    url={url}
+                    handleBackgroundColor={handleBackgroundColor} 
+                    handleTextColor={handleTextColor} 
+                    handleTitle={handleTitle}
+                    handleUrl={handleUrl}
+                    handleResetBtn={handleResetBtn} 
+                />
                 : 
-                <Picker backgroundColor={backgroundColor} textColor={textColor} handleBackgroundColor={handleBackgroundColor} handleTextColor={handleTextColor} handleResetBtn={handleResetBtn}  />
+                <Picker 
+                    backgroundColor={backgroundColor} 
+                    textColor={textColor} 
+                    handleBackgroundColor={handleBackgroundColor} 
+                    handleTextColor={handleTextColor} 
+                    handleResetBtn={handleResetBtn}  
+                />
             }
             {isAdvanced ?
-                null
+                <AdvancedClipBoard 
+                    widgetName={widgetName} 
+                    encodedBackgroundColor={encodedBackgroundColor} 
+                    encodedTextColor={encodedTextColor} 
+                    encodedTitle={encodedTitle}
+                    encodedUrl={encodedUrl}
+                    handleData={handleData} 
+                />
                 :
-                <ClipBoard widgetName={widgetName} encodedBackgroundColor={encodedBackgroundColor} encodedTextColor={encodedTextColor} handleData={handleData} />
+                <ClipBoard 
+                    widgetName={widgetName} 
+                    encodedBackgroundColor={encodedBackgroundColor} 
+                    encodedTextColor={encodedTextColor} 
+                    handleData={handleData} 
+                />
             }
             <div className={styles.info}>
                 <span>paste the url into your Notion page's /embed block.</span>

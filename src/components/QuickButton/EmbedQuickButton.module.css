@@ -17,9 +17,12 @@
 }
 
 .btn {
+    border: none;
+    cursor: pointer;
+}
+
+.text {
     color: var(--main-text-color);
     font-size: 10vw;
     font-weight: bold;
-    border: none;
-    cursor: pointer;
 }
