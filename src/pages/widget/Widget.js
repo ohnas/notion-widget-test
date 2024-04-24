@@ -25,6 +25,7 @@ function Widget() {
     const [encodedTextColor, setEncodedTextColor] = useState("");
     const [encodedTitle, setEncodedTitle] = useState("");
     const [encodedUrl, setEncodedUrl] = useState("https://google.com");
+    const [copied, setCopied] = useState(false);
     
     function handleBackgroundColor(event) {
         setBackgroundColor(event.target.value);
@@ -63,10 +64,10 @@ function Widget() {
         const targetUrl = event.target.previousElementSibling.firstElementChild.textContent;
         navigator.clipboard.writeText(targetUrl)
         .then(() => {
-            console.log("Text copied to clipboard...");
+            setCopied((prev) => !prev);
         })
         .catch((error) => {
-            console.log('Something went wrong', error);
+            alert('Something went wrong', error);
         })
     }
     useEffect(() => {
@@ -131,6 +132,7 @@ function Widget() {
                     encodedTitle={encodedTitle}
                     encodedUrl={encodedUrl}
                     handleData={handleData} 
+                    copied={copied}
                 />
                 :
                 <ClipBoard 
@@ -138,6 +140,7 @@ function Widget() {
                     encodedBackgroundColor={encodedBackgroundColor} 
                     encodedTextColor={encodedTextColor} 
                     handleData={handleData} 
+                    copied={copied}
                 />
             }
             <div className={styles.info}>
