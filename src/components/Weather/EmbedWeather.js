@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import styles from './EmbedWeather.module.css';
 
 const API_KEY = process.env.REACT_APP_CURRENT_WEATHER_API_KEY;
 
@@ -10,23 +11,15 @@ function EmbedWeather() {
         .then((response) => response.json())
         .then((data) => {
             const temp = data.main.temp;
-            const tempMax = data.main.temp_max;
-            const tempMin = data.main.temp_min;
-            const humidity = data.main.humidity;
             const name = data.name;
             const country = data.sys.country;
-            const weatherDes = data.weather[0].description;
             const weatherIcon = data.weather[0].icon;
             const weatherIconUrl = `https://openweathermap.org/img/wn/${weatherIcon}@2x.png`;
             const weatherMain = data.weather[0].main;
             setWeather({
                 temp : temp,
-                tempMax : tempMax,
-                tempMin : tempMin,
-                humidity : humidity,
                 name : name,
                 country : country,
-                weatherDes : weatherDes,
                 weatherIcon : weatherIcon,
                 weatherIconUrl : weatherIconUrl,
                 weatherMain : weatherMain,
@@ -37,16 +30,36 @@ function EmbedWeather() {
         })
     }
     
-    // useEffect(() => {
-    //     navigator.geolocation.getCurrentPosition((position) => {
-    //         let lat = position.coords.latitude;
-    //         let lon = position.coords.longitude;
-    //         getWeather(lat, lon)
-    //     });
-    // },[]);
+    useEffect(() => {
+        navigator.geolocation.getCurrentPosition((position) => {
+            let lat = position.coords.latitude;
+            let lon = position.coords.longitude;
+            getWeather(lat, lon)
+        });
+    },[]);
 
     return (
-        <div>Weather</div>
+        <div className={styles.container}>
+            {Object.keys(weather).length === 0 ? 
+                <div className={styles.load}>
+                    <span>Loading...</span>
+                </div>
+                :
+                <div className={styles.item}>
+                    <div className={styles.region}>
+                        <span>{weather.country}</span>
+                        <span>{weather.name}</span>
+                    </div>
+                    <div className={styles.weather}>
+                        <img src={weather.weatherIconUrl} alt='weatherIcon'></img>
+                        <span>{weather.weatherMain}</span>
+                    </div>
+                    <div className={styles.temp}>
+                        <span>{Math.round(weather.temp)}°</span>
+                    </div>
+                </div>
+            }
+        </div>
     );
 }
 

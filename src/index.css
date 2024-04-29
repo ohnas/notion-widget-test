@@ -5,8 +5,7 @@
     --sub-text-color: #636e72;
 }
 
-
-body {
+#root {
     font-family: "Bebas Neue";
     height: 100vh;
 }

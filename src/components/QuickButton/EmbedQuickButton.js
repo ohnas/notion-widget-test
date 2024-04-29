@@ -9,12 +9,6 @@ function EmbedQuickButton() {
     const title = searchParams.get('title');
     const place = searchParams.get('place');
 
-    console.log(backgroundColor);
-    console.log(textColor);
-    console.log(title);
-    console.log(place);
-
-
     function handleClick() {
         if(place === "" || place === null) {
             window.open('https://www.google.com', '_blank');

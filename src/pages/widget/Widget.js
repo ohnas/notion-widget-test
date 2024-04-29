@@ -7,6 +7,7 @@ import Picker from "../../components/Picker/Picker";
 import AdvancedPicker from "../../components/Picker/AdvancedPicker";
 import ClipBoard from "../../components/ClipBoard/ClipBoard";
 import AdvancedClipBoard from "../../components/ClipBoard/AdvancedClipBoard";
+import EmbedWeather from "../../components/Weather/EmbedWeather";
 
 function Widget() {
 	const params = useParams();
@@ -100,6 +101,10 @@ function Widget() {
                         url={url}
                         urlChange={urlChange}
                     /> 
+                    : null
+                }
+                {widgetName === "weather" ? 
+                    <EmbedWeather /> 
                     : null
                 }
             </div>
