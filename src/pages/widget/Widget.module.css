@@ -31,3 +31,15 @@
     color: var(--sub-text-color);
     margin-top: -20px;
 }
+
+@media (max-width:499px) {
+    .item {
+        width: 350px
+    }
+}
+
+@media (min-width:500px) and (max-width: 708px) {
+    .item {
+        width: 500px;
+    }
+}

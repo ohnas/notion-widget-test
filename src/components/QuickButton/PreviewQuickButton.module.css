@@ -7,22 +7,24 @@
 }
 
 .item {
-    width: 80%;
-    height: 40%;
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: var(--main-bg-color);
     border-radius: 20px;
+    width: 300px;
+    height: 100px;
 }
 
 .btn {
     border: none;
     cursor: pointer;
+    width: 90%;
+    height: 90%;
 }
 
 .text {
     color: var(--main-text-color);
-    font-size: 5vw;
+    font-size: 1.5rem;
     font-weight: bold;
 }
