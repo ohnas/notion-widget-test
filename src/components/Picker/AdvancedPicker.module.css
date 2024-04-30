@@ -51,3 +51,15 @@
     border-color: var(--main-border-color);
     cursor: pointer;
 }
+
+@media (max-width:900px) {
+    .color_picker {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .color {
+        display: flex;
+        flex-direction: column;
+    }
+}
