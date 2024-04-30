@@ -10,6 +10,8 @@ function EmbedWeather() {
 
     const backgroundColor = searchParams.get('background');
     const textColor = searchParams.get('text');
+    const lat = searchParams.get('lat');
+    const lon = searchParams.get('lon');
     
     function getWeather(lat, lon) {
         fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric`)
@@ -36,12 +38,10 @@ function EmbedWeather() {
     }
     
     useEffect(() => {
-        navigator.geolocation.getCurrentPosition((position) => {
-            let lat = position.coords.latitude;
-            let lon = position.coords.longitude;
-            getWeather(lat, lon)
-        });
-    },[]);
+        if(lat !== "" && lat !== null && lon !== "" && lon !== null) {
+            getWeather(lat, lon);
+        }
+    },[])
 
     return (
         <div className={styles.container}>

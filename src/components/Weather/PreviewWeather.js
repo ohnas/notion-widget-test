@@ -3,7 +3,7 @@ import styles from './PreviewWeather.module.css';
 
 const API_KEY = process.env.REACT_APP_CURRENT_WEATHER_API_KEY;
 
-function PreviewWeather({ backgroundColor, backgroundColorChange, textColor, textColorChange }) {
+function PreviewWeather({ backgroundColor, backgroundColorChange, textColor, textColorChange, updatGeolocation }) {
     const [weather, setWeather] = useState({});
     
     function getWeather(lat, lon) {
@@ -34,7 +34,8 @@ function PreviewWeather({ backgroundColor, backgroundColorChange, textColor, tex
         navigator.geolocation.getCurrentPosition((position) => {
             let lat = position.coords.latitude;
             let lon = position.coords.longitude;
-            getWeather(lat, lon)
+            getWeather(lat, lon);
+            updatGeolocation(lat, lon);
         });
     },[]);
 

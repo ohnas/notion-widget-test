@@ -12,8 +12,10 @@ import AdvancedClipBoard from "../../components/ClipBoard/AdvancedClipBoard";
 function Widget() {
 	const params = useParams();
 	const widgetName = params.name;
-    const advancedComponents = ["quickbutton"];
-    const [isAdvanced, setIsAdvanced] = useState(false);
+    const advancedPicker = ["quickbutton"];
+    const advancedClipBoard = ["quickbutton", "weather"];
+    const [isAdvancedPicker, setIsAdvancedPicker] = useState(false);
+    const [isAdvancedClipBoard, setIsAdvancedClipBoard] = useState(false);
     const [backgroundColor, setBackgroundColor] = useState("#F1EFEE");
     const [backgroundColorChange, setBackgroundColorChange] = useState(false);
     const [textColor, setTextColor] = useState("#2d3436");
@@ -26,6 +28,8 @@ function Widget() {
     const [encodedTextColor, setEncodedTextColor] = useState("");
     const [encodedTitle, setEncodedTitle] = useState("");
     const [encodedUrl, setEncodedUrl] = useState("https://google.com");
+    const [encodedLat, setEncodedLat] = useState(0);
+    const [encodedLon, setEncodedLon] = useState(0);
     const [copied, setCopied] = useState(false);
     
     function handleBackgroundColor(event) {
@@ -71,9 +75,16 @@ function Widget() {
             alert('Something went wrong', error);
         })
     }
+    function updatGeolocation(lat, lon) {
+        setEncodedLat(encodeURIComponent(lat));
+        setEncodedLon(encodeURIComponent(lon));
+    }
     useEffect(() => {
-        if(advancedComponents.includes(widgetName)) {
-            setIsAdvanced(true);
+        if(advancedPicker.includes(widgetName)) {
+            setIsAdvancedPicker(true);
+        }
+        if(advancedClipBoard.includes(widgetName)) {
+            setIsAdvancedClipBoard(true);
         }
     }, [widgetName])
 
@@ -108,11 +119,12 @@ function Widget() {
                         backgroundColorChange={backgroundColorChange}
                         textColor={textColor}
                         textColorChange={textColorChange} 
+                        updatGeolocation={updatGeolocation}
                     /> 
                     : null
                 }
             </div>
-            {isAdvanced ?
+            {isAdvancedPicker ?
                 <AdvancedPicker 
                     backgroundColor={backgroundColor} 
                     textColor={textColor} 
@@ -133,13 +145,15 @@ function Widget() {
                     handleResetBtn={handleResetBtn}  
                 />
             }
-            {isAdvanced ?
+            {isAdvancedClipBoard ?
                 <AdvancedClipBoard 
                     widgetName={widgetName} 
                     encodedBackgroundColor={encodedBackgroundColor} 
                     encodedTextColor={encodedTextColor} 
                     encodedTitle={encodedTitle}
                     encodedUrl={encodedUrl}
+                    encodedLat={encodedLat}
+                    encodedLon={encodedLon}
                     handleData={handleData} 
                     copied={copied}
                 />
