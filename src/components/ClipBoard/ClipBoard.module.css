@@ -22,3 +22,14 @@
     border-color: var(--main-border-color);
     cursor: pointer;
 }
+
+@media (max-width:499px) {
+    .clipboard {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .url span {
+        word-break: break-all;
+    }
+}
