@@ -3,11 +3,11 @@ import { useParams } from "react-router-dom";
 import styles from './Widget.module.css'
 import PreviewFlipClock from "../../components/FlipClock/PreviewFlipClock";
 import PreviewQuickButton from "../../components/QuickButton/PreviewQuickButton";
+import PreviewWeather from "../../components/Weather/PreviewWeather";
 import Picker from "../../components/Picker/Picker";
 import AdvancedPicker from "../../components/Picker/AdvancedPicker";
 import ClipBoard from "../../components/ClipBoard/ClipBoard";
 import AdvancedClipBoard from "../../components/ClipBoard/AdvancedClipBoard";
-import EmbedWeather from "../../components/Weather/EmbedWeather";
 
 function Widget() {
 	const params = useParams();
@@ -103,8 +103,12 @@ function Widget() {
                     /> 
                     : null
                 }
-                {widgetName === "weather" ? 
-                    <EmbedWeather /> 
+                {widgetName === "weather" ? <PreviewWeather 
+                        backgroundColor={backgroundColor} 
+                        backgroundColorChange={backgroundColorChange}
+                        textColor={textColor}
+                        textColorChange={textColorChange} 
+                    /> 
                     : null
                 }
             </div>

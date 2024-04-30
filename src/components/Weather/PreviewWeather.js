@@ -1,15 +1,10 @@
 import { useEffect, useState } from "react";
-import { useSearchParams } from "react-router-dom";
-import styles from './EmbedWeather.module.css';
+import styles from './PreviewWeather.module.css';
 
 const API_KEY = process.env.REACT_APP_CURRENT_WEATHER_API_KEY;
 
-function EmbedWeather() {
+function PreviewWeather({ backgroundColor, backgroundColorChange, textColor, textColorChange }) {
     const [weather, setWeather] = useState({});
-    const [searchParams] = useSearchParams();
-
-    const backgroundColor = searchParams.get('background');
-    const textColor = searchParams.get('text');
     
     function getWeather(lat, lon) {
         fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric`)
@@ -50,16 +45,16 @@ function EmbedWeather() {
                     <span>Loading...</span>
                 </div>
                 :
-                <div className={styles.item} style={backgroundColor === "" || backgroundColor === null ? null : {'borderColor':backgroundColor}}>
-                    <div className={styles.region} style={textColor === "" || textColor === null ? null : {'color':textColor}}>
+                <div className={styles.item} style={backgroundColorChange === false ? null : {'borderColor':backgroundColor}}>
+                    <div className={styles.region} style={textColorChange === false ? null : {'color':textColor}}>
                         <span>{weather.country}</span>
                         <span>{weather.name}</span>
                     </div>
                     <div className={styles.weather}>
                         <img src={weather.weatherIconUrl} alt='weatherIcon'></img>
-                        <span style={textColor === "" || textColor === null ? null : {'color':textColor}}>{weather.weatherMain}</span>
+                        <span style={textColorChange === false ? null : {'color':textColor}}>{weather.weatherMain}</span>
                     </div>
-                    <div className={styles.temp} style={textColor === "" || textColor === null ? null : {'color':textColor}}>
+                    <div className={styles.temp} style={textColorChange === false ? null : {'color':textColor}}>
                         <span>{Math.round(weather.temp)}°</span>
                     </div>
                 </div>
@@ -68,4 +63,4 @@ function EmbedWeather() {
     );
 }
 
-export default EmbedWeather;
+export default PreviewWeather;

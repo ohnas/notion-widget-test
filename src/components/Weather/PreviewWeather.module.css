@@ -15,6 +15,8 @@
     border: 5px solid;
     border-color: var(--main-border-color);
     border-radius: 50%;
+    width: 250px;
+    height: 250px;
 }
 
 .item {
@@ -25,6 +27,8 @@
     border: 5px solid;
     border-color: var(--main-border-color);
     border-radius: 50%;
+    width: 250px;
+    height: 250px;
 }
 
 .region {
@@ -35,6 +39,7 @@
     gap: 10px;
     color: var(--main-text-color);
     font-weight: bold;
+    font-size: 1.5rem;
 }
 
 .weather {
@@ -46,54 +51,11 @@
 
 .weather span:nth-of-type(1) {
     color: var(--sub-text-color);
+    font-size: 1rem;
 }
 
 .temp {
     margin-top: 15px;
+    font-size: 1.5rem;
     color: var(--main-text-color);
-}
-
-@media (max-width:349px) {
-    .load, .item {
-        width: 200px;
-        height: 200px;
-    }
-
-    .region, .temp {
-        font-size: 1rem;
-    }
-
-    .weather span:nth-of-type(1) {
-        font-size: 0.7rem;
-    }
-}
-
-@media (min-width: 350px) and (max-width: 708px) {
-    .load, .item {
-        width: 250px;
-        height: 250px;
-    }
-
-    .region, .temp {
-        font-size: 1.5rem;
-    }
-
-    .weather span:nth-of-type(1) {
-        font-size: 1rem;
-    }
-}
-
-@media (min-width: 709px) {
-    .load, .item{
-        width: 300px;
-        height: 300px;
-    }
-
-    .region, .temp {
-        font-size: 2rem;
-    }
-
-    .weather span:nth-of-type(1) {
-        font-size: 1.5rem;
-    }
 }
