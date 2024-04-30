@@ -1,15 +1,12 @@
 .container {
     width: 100%;
-    height: 100vh;
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 20px;
 }
 
 .item {
-    width: 40%;
-    height: 80%;
     position: relative;
     display: flex;
     justify-content: center;
@@ -19,9 +16,9 @@
 }
 
 .text {
+    padding-top: 15px;
     color: var(--main-text-color);
-    font-size: 25vw;
-    font-weight: bold;
+    font-weight: 900;
 }
 
 .line {
@@ -29,7 +26,6 @@
     position: absolute;
     top: 50%;
     width: 100%;
-    height: 0.5vh;
 }
 
 .day {
@@ -37,5 +33,74 @@
     top: 85%;
     right: 10%;
     color: var(--main-text-color);
-    font-size: 3vw;
+}
+
+@media (max-width:349px) {
+    .container {
+        gap: 5px;
+    }
+
+    .item {
+        width: 100px;
+        height: 150px;
+    }
+    
+    .text {
+        font-size: 4rem;
+    }
+
+    .line {
+        height: 1px;
+    }
+
+    .day {
+        font-size: 0.5rem;
+    }
+
+}
+
+@media (min-width: 350px) and (max-width: 708px) {
+    .container {
+        gap: 10px;
+    }
+
+    .item {
+        width: 200px;
+        height: 250px;
+    }
+
+    .text {
+        font-size: 8rem;
+    }
+
+    .line {
+        height: 2px;
+    }
+
+    .day {
+        font-size: 1rem;
+    }
+}
+
+@media (min-width: 709px) {
+    .container {
+        gap: 15px;
+    }
+
+    .item {
+        width: 400px;
+        height: 450px;
+    }
+
+    .text {
+        font-size: 16rem;
+    }
+
+    .line {
+        height: 3px;
+    }
+
+    .day {
+        font-size: 2rem;
+    }
 }
