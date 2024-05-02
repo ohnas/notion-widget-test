@@ -50,42 +50,6 @@ function Home() {
                         <span className={styles.content}>위젯 설명</span>
                     </div>
                 </div>
-                <div className={styles.item}>
-                    <div className={styles.item_img}>
-                        <span>위젯 이미지</span>
-                    </div>
-                    <div className={styles.item_title}>
-                        <span className={styles.title}>위젯 이름</span>
-                        <span className={styles.content}>위젯 설명</span>
-                    </div>
-                </div>
-                <div className={styles.item}>
-                    <div className={styles.item_img}>
-                        <span>위젯 이미지</span>
-                    </div>
-                    <div className={styles.item_title}>
-                        <span className={styles.title}>위젯 이름</span>
-                        <span className={styles.content}>위젯 설명</span>
-                    </div>
-                </div>
-                <div className={styles.item}>
-                    <div className={styles.item_img}>
-                        <span>위젯 이미지</span>
-                    </div>
-                    <div className={styles.item_title}>
-                        <span className={styles.title}>위젯 이름</span>
-                        <span className={styles.content}>위젯 설명</span>
-                    </div>
-                </div>
-                <div className={styles.item}>
-                    <div className={styles.item_img}>
-                        <span>위젯 이미지</span>
-                    </div>
-                    <div className={styles.item_title}>
-                        <span className={styles.title}>위젯 이름</span>
-                        <span className={styles.content}>위젯 설명</span>
-                    </div>
-                </div>
             </div>
         </div>
     );
