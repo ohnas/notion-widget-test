@@ -62,8 +62,9 @@ function Widget() {
         setUrl("https://google.com");
         setEncodedBackgroundColor("");
         setEncodedTextColor("");
-        setEncodedTitle("")
+        setEncodedTitle("");
         setEncodedUrl("https://google.com");
+        setCopied(false);
     }
     function handleData(event) {
         const targetUrl = event.target.previousElementSibling.firstElementChild.textContent;

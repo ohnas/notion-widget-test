@@ -16,6 +16,10 @@
     border-radius: 5px;
 }
 
+.url span {
+    word-break: break-all;
+}
+
 .clipboard > button {
     flex-grow: 2;
     border-radius: 10px;
@@ -27,9 +31,5 @@
     .clipboard {
         display: flex;
         flex-direction: column;
-    }
-    
-    .url span {
-        word-break: break-all;
     }
 }

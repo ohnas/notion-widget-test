@@ -22,6 +22,7 @@
 .text {
     color: var(--main-text-color);
     font-weight: bold;
+    word-break: break-all;
 }
 
 @media (max-width:349px) {

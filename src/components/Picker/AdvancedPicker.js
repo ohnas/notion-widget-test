@@ -9,7 +9,7 @@ function AdvancedPicker({ backgroundColor, textColor, title, url, handleBackgrou
                 <label htmlFor="text">Text</label>
                 <input id="text" type="color" value={textColor} onChange={handleTextColor} />
                 <label htmlFor="title">Title</label>
-                <input id="title" type="text" value={title} onChange={handleTitle} />
+                <input id="title" type="text" value={title} onChange={handleTitle} maxLength={"20"} />
                 <label htmlFor="url">URL</label>
                 <input id="url" type="url" value={url} onChange={handleUrl} />
             </div>
