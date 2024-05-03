@@ -1,8 +1,13 @@
 import { useEffect, useState } from 'react';
 import styles from './EmbedQuote.module.css';
+import { useSearchParams } from 'react-router-dom';
 
 function EmbedQuote() {
     const [quote, setQuote] = useState("");
+    const [searchParams] = useSearchParams();
+
+    const backgroundColor = searchParams.get('background');
+    const textColor = searchParams.get('text');
 
     function getQuote() {
         fetch('https://api.adviceslip.com/advice')
@@ -26,13 +31,13 @@ function EmbedQuote() {
                     <span>Loading...</span>
                 </div>
                 :
-                <div className={styles.item}>
+                <div className={styles.item} style={backgroundColor === "" || backgroundColor === null ? null : {'backgroundColor':backgroundColor}}>
                     <div className={styles.top}>
-                        <span>“</span>
+                        <span style={textColor === "" || textColor === null ? null : {'color':textColor}}>“</span>
                     </div>
-                    <span>{quote}</span>
+                    <span style={textColor === "" || textColor === null ? null : {'color':textColor}}>{quote}</span>
                     <div className={styles.bottom}>
-                        <span>”</span>
+                        <span style={textColor === "" || textColor === null ? null : {'color':textColor}}>”</span>
                     </div>
                 </div>
             }
