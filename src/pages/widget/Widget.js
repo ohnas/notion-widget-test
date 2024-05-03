@@ -4,6 +4,7 @@ import styles from './Widget.module.css'
 import PreviewFlipClock from "../../components/FlipClock/PreviewFlipClock";
 import PreviewQuickButton from "../../components/QuickButton/PreviewQuickButton";
 import PreviewWeather from "../../components/Weather/PreviewWeather";
+import PreviewQuote from "../../components/Quote/PreviewQuote";
 import Picker from "../../components/Picker/Picker";
 import AdvancedPicker from "../../components/Picker/AdvancedPicker";
 import ClipBoard from "../../components/ClipBoard/ClipBoard";
@@ -121,6 +122,14 @@ function Widget() {
                         textColor={textColor}
                         textColorChange={textColorChange} 
                         updatGeolocation={updatGeolocation}
+                    /> 
+                    : null
+                }
+                {widgetName === "quote" ? <PreviewQuote 
+                        backgroundColor={backgroundColor} 
+                        backgroundColorChange={backgroundColorChange}
+                        textColor={textColor}
+                        textColorChange={textColorChange} 
                     /> 
                     : null
                 }

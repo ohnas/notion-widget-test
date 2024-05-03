@@ -16,7 +16,7 @@ function Home() {
                         </div>
                         <div className={styles.item_title}>
                             <span className={styles.title}>Flip Clock</span>
-                            <span className={styles.content}>It is a simple clock widget that can check the time and today's date.</span>
+                            <span className={styles.content}>It is a simple clock widget that can check the time</span>
                         </div>
                     </Link>
                 </div>
