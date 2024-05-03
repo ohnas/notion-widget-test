@@ -48,8 +48,8 @@ function PreviewWeather({ backgroundColor, backgroundColorChange, textColor, tex
                 :
                 <div className={styles.item} style={backgroundColorChange === false ? null : {'borderColor':backgroundColor}}>
                     <div className={styles.region} style={textColorChange === false ? null : {'color':textColor}}>
-                        <span>{weather.country}</span>
                         <span>{weather.name}</span>
+                        <span>{weather.country}</span>
                     </div>
                     <div className={styles.weather}>
                         <img src={weather.weatherIconUrl} alt='weatherIcon'></img>
