@@ -1,8 +1,9 @@
 import { Link } from 'react-router-dom';
-import styles from './Home.module.css'
-import flipclock from '../../assets/images/flipclock.png'
-import quickbutton from '../../assets/images/quickbutton.png'
-import weather from '../../assets/images/weather.png'
+import styles from './Home.module.css';
+import flipclock from '../../assets/images/flipclock.png';
+import quickbutton from '../../assets/images/quickbutton.png';
+import weather from '../../assets/images/weather.png';
+import quote from '../../assets/images/quote.png';
 
 function Home() {
     return(
@@ -44,11 +45,11 @@ function Home() {
                 <div className={styles.item}>
                     <Link to={"/widget/quote"}>
                         <div className={styles.item_img}>
-                            <span>위젯 이미지</span>
+                            <img src={quote} alt='quote'></img>
                         </div>
                         <div className={styles.item_title}>
                             <span className={styles.title}>Quote</span>
-                            <span className={styles.content}>위젯 설명</span>
+                            <span className={styles.content}>It is a simple widget for a quote</span>
                         </div>
                     </Link>
                 </div>

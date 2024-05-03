@@ -27,7 +27,13 @@ function EmbedQuote() {
                 </div>
                 :
                 <div className={styles.item}>
+                    <div className={styles.top}>
+                        <span>“</span>
+                    </div>
                     <span>{quote}</span>
+                    <div className={styles.bottom}>
+                        <span>”</span>
+                    </div>
                 </div>
             }
         </div>
