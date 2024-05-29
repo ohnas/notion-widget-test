@@ -53,6 +53,17 @@ function Home() {
                         </div>
                     </Link>
                 </div>
+                <div className={styles.item}>
+                    <Link to={"/widget/eightdaysweather"}>
+                        <div className={styles.item_img}>
+                            <img src={weather} alt='eightdaysweather'></img>
+                        </div>
+                        <div className={styles.item_title}>
+                            <span className={styles.title}>8 Days Weather</span>
+                            <span className={styles.content}>It is a simple widget for the 8 days weather.</span>
+                        </div>
+                    </Link>
+                </div>
             </div>
         </div>
     );
