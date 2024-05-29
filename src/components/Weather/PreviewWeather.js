@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import styles from './PreviewWeather.module.css';
 
-const API_KEY = process.env.REACT_APP_CURRENT_WEATHER_API_KEY;
+const API_KEY = process.env.REACT_APP_WEATHER_API_KEY;
 
 function PreviewWeather({ backgroundColor, backgroundColorChange, textColor, textColorChange, updatGeolocation }) {
     const [weather, setWeather] = useState({});
