@@ -5,6 +5,7 @@ import PreviewFlipClock from "../../components/FlipClock/PreviewFlipClock";
 import PreviewQuickButton from "../../components/QuickButton/PreviewQuickButton";
 import PreviewWeather from "../../components/Weather/PreviewWeather";
 import PreviewQuote from "../../components/Quote/PreviewQuote";
+import PreviewEightDaysWeather from "../../components/EightDaysWeather/PreviewEightDaysWeather";
 import Picker from "../../components/Picker/Picker";
 import AdvancedPicker from "../../components/Picker/AdvancedPicker";
 import ClipBoard from "../../components/ClipBoard/ClipBoard";
@@ -14,7 +15,7 @@ function Widget() {
 	const params = useParams();
 	const widgetName = params.name;
     const advancedPicker = ["quickbutton"];
-    const advancedClipBoard = ["quickbutton", "weather"];
+    const advancedClipBoard = ["quickbutton", "weather", "eightdaysweather"];
     const [isAdvancedPicker, setIsAdvancedPicker] = useState(false);
     const [isAdvancedClipBoard, setIsAdvancedClipBoard] = useState(false);
     const [backgroundColor, setBackgroundColor] = useState("#F1EFEE");
@@ -130,6 +131,15 @@ function Widget() {
                         backgroundColorChange={backgroundColorChange}
                         textColor={textColor}
                         textColorChange={textColorChange} 
+                    /> 
+                    : null
+                }
+                {widgetName === "eightdaysweather" ? <PreviewEightDaysWeather 
+                        // backgroundColor={backgroundColor} 
+                        // backgroundColorChange={backgroundColorChange}
+                        // textColor={textColor}
+                        // textColorChange={textColorChange} 
+                        // updatGeolocation={updatGeolocation}
                     /> 
                     : null
                 }

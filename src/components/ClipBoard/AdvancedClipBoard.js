@@ -2,7 +2,7 @@ import styles from './AdvancedClipBoard.module.css'
 
 function AdvancedClipBoard({ widgetName, encodedBackgroundColor, encodedTextColor, encodedTitle, encodedUrl, encodedLat, encodedLon, handleData, copied }) {
 
-    if(widgetName === "weather") {
+    if(widgetName === "weather" || "eightdaysweather") {
         return (
             <div className={styles.clipboard}>
                 <div className={styles.url}>
