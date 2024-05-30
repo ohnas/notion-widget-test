@@ -32,13 +32,21 @@ function PreviewEightDaysWeather() {
         })
     }
 
+    function getDayOfWeekFromTimestamp(timestamp) {
+        const date = new Date(timestamp * 1000);
+        const daysOfWeek = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+        const dayOfWeek = daysOfWeek[date.getUTCDay()];
+        
+        return dayOfWeek;
+    }
+    
+
     useEffect(() => {
         const lat = 37.6429582;
         const lon = 126.6236117
         getGeo(lat, lon);
         getWeather(lat, lon);
     },[]);
-    console.log(weather);
     
     // useEffect(() => {
     //     navigator.geolocation.getCurrentPosition((position) => {
@@ -70,7 +78,11 @@ function PreviewEightDaysWeather() {
                             <span>{weather.current.weather[0].main}</span>
                         </div>
                     </div>
-                    <div className={styles.daily}>hello</div>
+                    <div className={styles.daily}>
+                        {weather.daily.map((day) => (
+                            <div key={day.dt}>{getDayOfWeekFromTimestamp(day.dt)}</div>
+                        ))}
+                    </div>
                 </div>
             }
         </div>

@@ -52,4 +52,7 @@
 
 .daily {
     background-color: tomato;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
