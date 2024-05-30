@@ -39,7 +39,6 @@ function PreviewEightDaysWeather() {
         getWeather(lat, lon);
     },[]);
     console.log(weather);
-    console.log(region);
     
     // useEffect(() => {
     //     navigator.geolocation.getCurrentPosition((position) => {
@@ -51,7 +50,30 @@ function PreviewEightDaysWeather() {
     // },[]);
 
     return (
-        <div>hello</div>
+        <div className={styles.container}>
+            {Object.keys(weather).length === 0 || Object.keys(region).length === 0 ? 
+                <div className={styles.load}>
+                    <span>Loading...</span>
+                </div>
+                :
+                <div className={styles.item}>
+                    <div className={styles.current}>
+                        <div className={styles.region}>
+                            <span>{region.name}</span>
+                            <span>{region.country}</span>
+                        </div>
+                        <div className={styles.weather}>
+                            <img src={`https://openweathermap.org/img/wn/${weather.current.weather[0].icon}@4x.png`} alt='weatherIcon'></img>
+                        </div>
+                        <div className={styles.temp}>
+                            <span>{Math.round(weather.current.temp)}°</span>
+                            <span>{weather.current.weather[0].main}</span>
+                        </div>
+                    </div>
+                    <div className={styles.daily}>hello</div>
+                </div>
+            }
+        </div>
     );
 }
 

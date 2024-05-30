@@ -50,7 +50,7 @@ function PreviewWeather({ backgroundColor, backgroundColorChange, textColor, tex
 
     return (
         <div className={styles.container}>
-            {Object.keys(weather).length === 0 && Object.keys(region).length === 0 ? 
+            {Object.keys(weather).length === 0 || Object.keys(region).length === 0 ? 
                 <div className={styles.load}>
                     <span>Loading...</span>
                 </div>
