@@ -4,6 +4,7 @@ import flipclock from '../../assets/images/flipclock.png';
 import quickbutton from '../../assets/images/quickbutton.png';
 import weather from '../../assets/images/weather.png';
 import quote from '../../assets/images/quote.png';
+import eightdaysweather from '../../assets/images/eightdaysweather.png'
 
 function Home() {
     return(
@@ -56,11 +57,11 @@ function Home() {
                 <div className={styles.item}>
                     <Link to={"/widget/eightdaysweather"}>
                         <div className={styles.item_img}>
-                            <img src={weather} alt='eightdaysweather'></img>
+                            <img src={eightdaysweather} alt='eightdaysweather'></img>
                         </div>
                         <div className={styles.item_title}>
                             <span className={styles.title}>8 Days Weather</span>
-                            <span className={styles.content}>It is a simple widget for the 8 days weather.</span>
+                            <span className={styles.content}>It is a simple 8-day weather widget.</span>
                         </div>
                     </Link>
                 </div>

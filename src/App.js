@@ -7,6 +7,7 @@ import EmbedFlipClock from "./components/FlipClock/EmbedFlipClock";
 import EmbedQuickButton from "./components/QuickButton/EmbedQuickButton";
 import EmbedWeather from "./components/Weather/EmbedWeather";
 import EmbedQuote from "./components/Quote/EmbedQuote";
+import EmbedEightDaysWeather from "./components/EightDaysWeather/EmbedEightDaysWeather";
 
 function App() {
   const location = useLocation();
@@ -30,6 +31,7 @@ function App() {
         <Route path="/embeds/quickbutton" element={<EmbedQuickButton />} ></Route>
         <Route path="/embeds/weather" element={<EmbedWeather />} ></Route>
         <Route path="/embeds/quote" element={<EmbedQuote />} ></Route>
+        <Route path="/embeds/eightdaysweather" element={<EmbedEightDaysWeather />} ></Route>
       </Routes>
     </>
   );
