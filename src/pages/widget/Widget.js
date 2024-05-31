@@ -135,11 +135,11 @@ function Widget() {
                     : null
                 }
                 {widgetName === "eightdaysweather" ? <PreviewEightDaysWeather 
-                        // backgroundColor={backgroundColor} 
-                        // backgroundColorChange={backgroundColorChange}
-                        // textColor={textColor}
-                        // textColorChange={textColorChange} 
-                        // updatGeolocation={updatGeolocation}
+                        backgroundColor={backgroundColor} 
+                        backgroundColorChange={backgroundColorChange}
+                        textColor={textColor}
+                        textColorChange={textColorChange} 
+                        updatGeolocation={updatGeolocation}
                     /> 
                     : null
                 }

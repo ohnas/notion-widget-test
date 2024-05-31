@@ -3,7 +3,7 @@ import styles from './PreviewEightDaysWeather.module.css';
 
 const API_KEY = process.env.REACT_APP_WEATHER_API_KEY;
 
-function PreviewEightDaysWeather() {
+function PreviewEightDaysWeather({ backgroundColor, backgroundColorChange, textColor, textColorChange, updatGeolocation }) {
     const [weather, setWeather] = useState({});
     const [region, setRegion] = useState({});
     
@@ -40,22 +40,15 @@ function PreviewEightDaysWeather() {
         return dayOfWeek;
     }
     
-
     useEffect(() => {
-        const lat = 37.6429582;
-        const lon = 126.6236117
-        getGeo(lat, lon);
-        getWeather(lat, lon);
+        navigator.geolocation.getCurrentPosition((position) => {
+            let lat = position.coords.latitude;
+            let lon = position.coords.longitude;
+            getGeo(lat, lon);
+            getWeather(lat, lon);
+            updatGeolocation(lat, lon);
+        });
     },[]);
-    
-    // useEffect(() => {
-    //     navigator.geolocation.getCurrentPosition((position) => {
-    //         let lat = position.coords.latitude;
-    //         let lon = position.coords.longitude;
-    //         getWeather(lat, lon);
-    //         updatGeolocation(lat, lon);
-    //     });
-    // },[]);
 
     return (
         <div className={styles.container}>
@@ -64,23 +57,34 @@ function PreviewEightDaysWeather() {
                     <span>Loading...</span>
                 </div>
                 :
-                <div className={styles.item}>
+                <div className={styles.item} style={backgroundColorChange === false ? null : {'backgroundColor':backgroundColor}}>
                     <div className={styles.current}>
-                        <div className={styles.region}>
+                        <div className={styles.region} style={textColorChange === false ? null : {'color':textColor}}>
                             <span>{region.name}</span>
                             <span>{region.country}</span>
                         </div>
                         <div className={styles.weather}>
                             <img src={`https://openweathermap.org/img/wn/${weather.current.weather[0].icon}@4x.png`} alt='weatherIcon'></img>
                         </div>
-                        <div className={styles.temp}>
+                        <div className={styles.temp} style={textColorChange === false ? null : {'color':textColor}}>
                             <span>{Math.round(weather.current.temp)}°</span>
                             <span>{weather.current.weather[0].main}</span>
                         </div>
                     </div>
                     <div className={styles.daily}>
                         {weather.daily.map((day) => (
-                            <div key={day.dt}>{getDayOfWeekFromTimestamp(day.dt)}</div>
+                            <div className={styles.daily_item} key={day.dt}>
+                                <div className={styles.daily_day} style={textColorChange === false ? null : {'color':textColor}}>
+                                    <span>{getDayOfWeekFromTimestamp(day.dt)}</span>
+                                </div>
+                                <div className={styles.daily_weather}>
+                                    <img src={`https://openweathermap.org/img/wn/${day.weather[0].icon}.png`} alt='weatherIcon'></img>
+                                </div>
+                                <div className={styles.daily_temp} style={textColorChange === false ? null : {'color':textColor}}>
+                                    <span>{Math.round(day.temp.min)}°</span>
+                                    <span>{Math.round(day.temp.max)}°</span>
+                                </div>
+                            </div>
                         ))}
                     </div>
                 </div>
