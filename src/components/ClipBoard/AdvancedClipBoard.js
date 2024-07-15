@@ -1,7 +1,7 @@
 import styles from './AdvancedClipBoard.module.css'
 
 function AdvancedClipBoard({ widgetName, encodedBackgroundColor, encodedTextColor, encodedTitle, encodedUrl, encodedLat, encodedLon, handleData, copied }) {
-    console.log(widgetName);
+    
     if(widgetName === "weather") {
         return (
             <div className={styles.clipboard}>
